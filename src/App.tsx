@@ -6,7 +6,7 @@ import TasksPage from "./pages/TasksPage/TasksPage";
 
 function App() {
     return (
-      <BrowserRouter basename="/">
+      <BrowserRouter basename="/ToDo-app">
         <Routes>
           <Route path={ROUTES.TASKS} element={<TasksPage />} />
         </Routes>
