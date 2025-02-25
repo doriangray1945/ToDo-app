@@ -26,4 +26,4 @@
 ## 🔗 Демо
 
 Попробуйте приложение в действии:  
-[**ToDo App на GitHub Pages**](https://doriangray1945.github.io/ToDo_app/)
+[**ToDo App на GitHub Pages**](https://doriangray1945.github.io/ToDo-app/)
