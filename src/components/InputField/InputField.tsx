@@ -16,7 +16,7 @@ const TodoInput: React.FC<TodoInputProps> = ({ onAddTask }) => {
   };
 
   return (
-    <div>
+    <div className='input-field-container'>
       <input
         className='input-field'
         type="text"

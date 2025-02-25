@@ -1,14 +1,33 @@
 .input-field {
     width: 350px;
     height: 24px;
-    border-radius: 7px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-width: 1px;
-    border-color: darkgray;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-left: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    border: none;
 }
 
 .add-task-btn {
     margin-left: 10px;
-    height: 25px;
+    height: 26px;
+    border: none;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    color:black;
+    cursor: pointer;
+}
+
+.add-task-btn:hover{
+    outline: none;
+    border-color: palevioletred;
+    box-shadow: 0 0 0 3px rgba(216, 112, 147, 0.2);
+}
+
+.input-field-container {
+    margin-bottom: 3vh;
 }

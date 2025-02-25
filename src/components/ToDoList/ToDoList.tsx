@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TodoItem from '../ToDoItem/ToDoItem';
 import InputField from '../../components/InputField/InputField';
+import './ToDoList.css'
 
 interface Task {
   id: number;
@@ -64,7 +65,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ list, onUpdateList }) => {
 
   return (
     <div>
-      <div>
+      <div className='tasks-count'>
         Количество оставшихся задач: {remainingTasks(list.tasks)}
       </div>
       <InputField onAddTask={addTask} />
@@ -77,17 +78,19 @@ const ToDoList: React.FC<ToDoListProps> = ({ list, onUpdateList }) => {
           onToggle={() => toggleTask(task.id)}
         />
       ))}
-      
-      <button onClick={clearCompletedTasks}>Очистить выполненные</button>
-      <div>
-        <label>
-          Фильтр задач:
-          <select onChange={(e) => setFilter(e.target.value as 'all' | 'active' | 'completed')} value={filter}>
-            <option value="all">Все</option>
-            <option value="active">Невыполненные</option>
-            <option value="completed">Выполненные</option>
-          </select>
-        </label>
+
+      <div className='card-end'>
+        <button onClick={clearCompletedTasks} className='clear-btn'>Очистить выполненные</button>
+        <div className='filter-container'>
+          <label>
+            Фильтр задач:
+            <select onChange={(e) => setFilter(e.target.value as 'all' | 'active' | 'completed')} value={filter}>
+              <option value="all">Все</option>
+              <option value="active">Невыполненные</option>
+              <option value="completed">Выполненные</option>
+            </select>
+          </label>
+        </div>
       </div>
     </div>
   );

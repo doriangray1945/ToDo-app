@@ -4,7 +4,7 @@ import ToDoList, { ToDoListType } from '../../components/ToDoList/ToDoList';
 import './TasksPage.css';
 
 const pastelColors = [
-  '#FFB3BA', '#FFDFBA', '#FFFFBA', '#BAFFC9', '#BAE1FF', '#FFC3A0',
+  '#FFB3BA', '#FFDFBF', '#FFFFBA', '#BAFFC9', '#BAE1FF', '#FFC3A0',
 ];
 
 const getRandomColor = () => pastelColors[Math.floor(Math.random() * pastelColors.length)];
@@ -51,53 +51,55 @@ const TasksPage: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Списки задач</h1>
-      <h5>Создайте свою доску с задачами.</h5>
-      <div>
-        <input
-          className='add-board'
-          type="text"
-          placeholder="Название нового списка"
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' && e.currentTarget.value.trim()) {
-              addTodoList(e.currentTarget.value);
-              e.currentTarget.value = '';
-            }
-          }}
-        />
-      </div>
+    <div className='container-1'>
+      <div className="container">
+        <h1>Списки задач</h1>
+        <h5>Создайте свою доску с задачами:</h5>
+        <div className='add-board-container'>
+          <input
+            className='add-board'
+            type="text"
+            placeholder="Название нового списка"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && e.currentTarget.value.trim()) {
+                addTodoList(e.currentTarget.value);
+                e.currentTarget.value = '';
+              }
+            }}
+          />
+        </div>
 
-      <div className="boards-container" onWheel={handleWheel}>
-        {todoLists.map((list, index) =>
-          index >= todoLists.length - 3 ? (
-            <motion.div
-              layout
-              layoutId={`board-${list.id}`}
-              className={`board ${index === todoLists.length - 1 ? 'active' : 'unactive'} 
-                ${index === todoLists.length - 3 ? 'last' : ''}`}
-              key={list.id}
-              style={{ backgroundColor: list.color }}
-              onClick={() => handleClick(index)}
-              initial={{ x: 100 }}
-              animate={{
-                x: index === todoLists.length - 1 ? 0 : (index === todoLists.length - 2 ? -50 : -100),
-                opacity: 1,
-                scale: index === todoLists.length - 1 ? 1.05 : 0.95
-              }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-            >
+        <div className="boards-container" onWheel={handleWheel}>
+          {todoLists.map((list, index) =>
+            index >= todoLists.length - 3 ? (
+              <motion.div
+                layout
+                layoutId={`board-${list.id}`}
+                className={`board ${index === todoLists.length - 1 ? 'active' : 'unactive'} 
+                  ${index === todoLists.length - 3 ? 'last' : ''}`}
+                key={list.id}
+                style={{ backgroundColor: list.color }}
+                onClick={() => handleClick(index)}
+                initial={{ x: 100 }}
+                animate={{
+                  x: index === todoLists.length - 1 ? 0 : (index === todoLists.length - 2 ? -50 : -100),
+                  opacity: 1,
+                  scale: index === todoLists.length - 1 ? 1.05 : 0.95
+                }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              >
 
-              <h3>{list.name}</h3>
-              {index === todoLists.length - 1 && (
-                <ToDoList 
-                  list={list}
-                  onUpdateList={updateTodoList}
-                />
-              )}
-            </motion.div>
-          ) : null
-        )}
+                <h3>{list.name}</h3>
+                {index === todoLists.length - 1 && (
+                  <ToDoList 
+                    list={list}
+                    onUpdateList={updateTodoList}
+                  />
+                )}
+              </motion.div>
+            ) : null
+          )}
+        </div>
       </div>
     </div>
   );

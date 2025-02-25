@@ -1,0 +1,57 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+  
+.todo-item:hover {
+    background-color: #f1f1f1;
+}
+  
+.task-text {
+    margin-left: 12px;
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+  
+.task-text.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+  
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+  
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.checkmark {
+    position: relative;
+    background-color: #fff;
+    border: 4px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+  
+.checkbox-container:hover .checkbox-input ~ .checkmark {
+    border-color:lawngreen;
+}
+  
+.checkbox-input:checked ~ .checkmark {
+    background-color: lawngreen;
+    border-color: lawngreen;
+}
